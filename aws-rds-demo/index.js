@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const { Sequelize } = require('sequelize')
 const userModel = require('./models/user')
-const PORT = 8000
+const PORT = 8080
 require('dotenv').config()
 
 const sequelize = new Sequelize(
@@ -24,13 +24,14 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/users', async (req, res) => {
+    
     try {
-        const { username, email } = req.body
-        const user = await User.create({ username, email })
-        res.json(user)
-    } catch (error) {
-        console.error(error)
-        res.status(500).json({ message: 'server error!!' })
+        const { userName, email } = req.body;
+        const user = await User.create({ userName, email });
+        res.json(user);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ msg: '서버에서 몬가가 잘못됐음' });
     }
 })
 
