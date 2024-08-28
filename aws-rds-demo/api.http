@@ -1,10 +1,9 @@
-@server=http://localhost:8000
+@server=http://localhost:8080
 
-# 요청
-POST {{server}}/api/users
+POST {[server]}/api/users
 Content-Type: application/json; charset-UTF-8
 
 {
-    "username" :"sesac",
-    "email":"aaa@aaa.com"
+  "userName" : "damon",
+  "email" : "test@test.com"
 }
